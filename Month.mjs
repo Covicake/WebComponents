@@ -66,7 +66,7 @@ export class Month extends HTMLElement {
                 }
             </style>
             <div class="month">
-                <h2>${this.monthName}</h2>
+                <h2 title="Hola">${this.monthName}</h2>
                 <div class="month-days">
                     ${components}
                 </div>

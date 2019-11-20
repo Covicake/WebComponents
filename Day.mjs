@@ -7,7 +7,6 @@ export class Day extends HTMLElement {
         this.week_day = this.getAttribute('week_day');
         this.isPastDay = this.getAttribute('past-day');
         this.isWeekend = this.getAttribute('is-weekend');
-        console.log(this.isWeekend);
 
         let className = '';
         if (this.isPastDay)
