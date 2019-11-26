@@ -18,7 +18,9 @@ export class Day extends HTMLElement {
             className = 'weekend';
         }
 
-        this.innerHTML = `
+        let shadow = this.attachShadow({mode: "open"});
+
+        shadow.innerHTML = `
             <style>
                 .day
                 {

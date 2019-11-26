@@ -5,6 +5,7 @@ export class Month extends HTMLElement {
 
         this.monthName = this.getAttribute('month-name');
         this.monthNumber = this.getAttribute('month-number');
+        this.year = this.getAttribute('month-year');
 
         const month = moment().month(this.monthName);
         const daysNumber = month.daysInMonth();
@@ -16,7 +17,7 @@ export class Month extends HTMLElement {
         }
         let components = ``;
         daysArr.forEach((element) => {
-            let weekDay = moment('2019/'+this.monthNumber+'/'+element, 'YYYY/MM/DD');
+            let weekDay = moment(this.year+'/'+this.monthNumber+'/'+element, 'YYYY/MM/DD');
             let isWeekend = false;
 
             if (element == '1' && weekDay.format("dddd") !== 'Monday')
@@ -29,7 +30,7 @@ export class Month extends HTMLElement {
                 let pastWeekDay = '';
                 for(var i = days-1; i > 0; i--)
                 {
-                    pastWeekDay = moment('2019/'+this.monthNumber+'/'+element, 'YYYY/MM/DD').subtract(i, 'days');
+                    pastWeekDay = moment(this.year+'/'+this.monthNumber+'/'+element, 'YYYY/MM/DD').subtract(i, 'days');
                     
                     components += `<c-day past-day= true; day="${pastWeekDay.format('DD')}" week_day="${pastWeekDay.format('dddd')}"></c-day>`
                 }
@@ -37,7 +38,6 @@ export class Month extends HTMLElement {
 
             if (weekDay.format('dddd') == 'Sunday' || weekDay.format('dddd') == 'Saturday')
             {
-                console.log('is weekend');
                 isWeekend = true;
             }
 
